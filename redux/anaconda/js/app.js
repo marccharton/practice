@@ -17,6 +17,14 @@ store.subscribe(() => {
     console.log(store.getState());
 });
 
+document.getElementById("increment").addEventListener("click", () => {
+    store.dispatch({ type: "INCREMENT" });
+});
+
+document.getElementById("decrement").addEventListener("click", () => {
+    store.dispatch({ type: "DECREMENT" });
+});
+
 store.dispatch({ type: "INCREMENT" });
 store.dispatch({ type: "DECREMENT" });
 store.dispatch({ type: "DECREMENT" });
