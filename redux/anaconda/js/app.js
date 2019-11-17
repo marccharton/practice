@@ -1,30 +1,23 @@
 import { anaconda } from "./anaconda.js";
-import { createStore } from 'redux';
+import { configureStore, createAction } from "@reduxjs/toolkit";
 
-const INCREMENT = "INCREMENT";
-const DECREMENT = "DECREMENT";
-
-function increment() {
-    return { type : INCREMENT };
-}
-
-function decrement() {
-    return { type : DECREMENT };
-}
-
+const increment = createAction("INCREMENT");
+const decrement = createAction("DECREMENT");
 
 function counter(state = 0, action) {
     switch(action.type) {
-        case INCREMENT:
+        case increment.type:
             return state + 1;
-        case DECREMENT:
+        case decrement.type:
             return state - 1;
         default:
             return state;
     }
 }
 
-const store = createStore(counter);
+const store = configureStore({
+    reducer : counter
+})
 
 store.subscribe(() => {
     console.log(store.getState());
