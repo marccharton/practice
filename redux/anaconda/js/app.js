@@ -1,16 +1,20 @@
 import { anaconda } from "./anaconda.js";
-import { configureStore, createAction, createReducer } from "@reduxjs/toolkit";
+import { configureStore, createAction, createReducer, createSlice } from "@reduxjs/toolkit";
 
-const increment = createAction("INCREMENT");
-const decrement = createAction("DECREMENT");
-
-const counter = createReducer(0, {
-    [increment]: state => state + 1,
-    [decrement]: state => state - 1
+const counterSlice = createSlice({
+    name : "counter",
+    initialState : 0,
+    reducers : {
+        increment: state => state + 1,
+        decrement: state => state - 1,
+    }
 });
 
+const { actions, reducer } = counterSlice;
+const { increment, decrement } = actions;
+
 const store = configureStore({
-    reducer : counter
+    reducer : reducer
 });
 
 store.subscribe(() => {
