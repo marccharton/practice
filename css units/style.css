@@ -1,0 +1,52 @@
+body {
+  background-color: #eeefef;
+  box-sizing: border-box;
+}
+
+.child {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: #AAA 1px 1px 3px;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+.parent {
+  width : 50%;
+  padding:10px;  
+  background-color: #DDdede;
+  text-align: right;
+  margin-top: 10px;
+}
+
+.fixed {
+  background-color: rgb(7, 155, 192);
+  width : 50px;
+  height: 50px;
+}
+
+.em {
+  background-color: rgb(230, 193, 28);
+  width : 50em;
+  height: 50em;
+}
+
+.rem {
+  background-color: rgb(230, 52, 28);
+  width : 50em;
+  height: 50em;
+}
+
+.percentage {
+  background-color: rgb(192, 7, 167);
+  width : 50%;
+  height: 50%;
+}
+
+.view-width {
+  background-color: rgb(7, 192, 90);
+  width : 50vw;
+  height: 50vh;
+}
