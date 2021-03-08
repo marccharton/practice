@@ -1,0 +1,15 @@
+{
+  "name": "testsass",
+  "scripts": {
+    "scss": "node-sass -watch scss -o css"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.13.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}
