@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chaussures",
+  "info": {
+    "name": "Chaussures"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "nom": {
+      "type": "string"
+    }
+  }
+}
