@@ -5,14 +5,15 @@ import './App.css';
 const apiUrl = 'http://localhost:3001';
 
 axios.interceptors.request.use(
-  config => {
-    const { origin } = new URL(config.url);
+  req => {
+    const { origin } = new URL(req.url);
+    console.log({origin});
     const allowedOrigins = [apiUrl];
     const token = localStorage.getItem('token');
     if (allowedOrigins.includes(origin)) {
-      config.headers.authorization = `Bearer ${token}`;
+      req.headers.authorization = `Bearer ${token}`;
     }
-    return config;
+    return req;
   },
   error => {
     return Promise.reject(error);
@@ -24,6 +25,7 @@ function App() {
   const [jwt, setJwt] = useState(storedJwt || null);
   const [foods, setFoods] = useState([]);
   const [fetchError, setFetchError] = useState(null);
+  
   const getJwt = async () => {
     const { data } = await axios.get(`${apiUrl}/jwt`);
     localStorage.setItem('token', data.token);
@@ -40,7 +42,7 @@ function App() {
     }
   };
 
-return (
+  return (
     <>
       <section style={{ marginBottom: '10px' }}>
         <button onClick={() => getJwt()}>Get JWT</button>
@@ -56,7 +58,7 @@ return (
         </button>
         <ul>
           {foods.map((food, i) => (
-            <li>{food.description}</li>
+            <li key={food.id}>{food.description}</li>
           ))}
         </ul>
         {fetchError && (
