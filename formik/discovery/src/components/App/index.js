@@ -1,3 +1,5 @@
+import { BrowserRouter, Link, Route } from "react-router-dom";
+
 import './App.css';
 
 // import SimpleForm from './components/forms/simpleForm';
@@ -6,15 +8,23 @@ import Signup from '../../pages/signup';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
+    <BrowserRouter>
+      <div className="App">
+        
+        <header className="App-header">
+          <nav>
+            <Link to="/signup">Sign up</Link>
+            <Link to="/login">Log in</Link>
+          </nav>
+        </header>
 
-      {/* <SimpleForm></SimpleForm> */}
-      <Login></Login>
-      <Signup></Signup>
+        <div>
+          <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login} />
+        </div>
 
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
