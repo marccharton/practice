@@ -2,10 +2,10 @@ import { useFormik } from 'formik';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
-import validationSchema from './login.validation';
+import validationSchema from './signup.validation';
 import { sleep } from '../../utils';
 
-const LoginForm = () => {
+const SignupForm = () => {
 
     const handleSubmit = async (values) => {
         await sleep(1000);
@@ -15,8 +15,11 @@ const LoginForm = () => {
 
     const formik = useFormik({
         initialValues : {
+            firstName: '',
+            lastName: '',
             email: '',
             password: '',
+            passwordConfirmation: '',
         },
         onSubmit : handleSubmit,
         validationSchema : validationSchema,
@@ -24,6 +27,28 @@ const LoginForm = () => {
 
     return (
         <form onSubmit={formik.handleSubmit}>
+        
+            <TextField 
+                fullWidth
+                id="firstName"
+                name="firstName"
+                label="Firstname"
+                value={formik.values.firstName}
+                onChange={formik.handleChange}
+                error={formik.touched.firstName && Boolean(formik.errors.firstName)}
+                helperText={formik.touched.firstName && formik.errors.firstName}
+            />
+        
+            <TextField 
+                fullWidth
+                id="lastName"
+                name="lastName"
+                label="Lastname"
+                value={formik.values.lastName}
+                onChange={formik.handleChange}
+                error={formik.touched.lastName && Boolean(formik.errors.lastName)}
+                helperText={formik.touched.lastName && formik.errors.lastName}
+            />
         
             <TextField 
                 fullWidth
@@ -48,6 +73,18 @@ const LoginForm = () => {
                 helperText={formik.touched.password && formik.errors.password}
             />
 
+            <TextField
+                fullWidth
+                id="passwordConfirmation"
+                name="passwordConfirmation"
+                label="Confirmation Password"
+                type="password"
+                value={formik.values.passwordConfirmation}
+                onChange={formik.handleChange}
+                error={formik.touched.passwordConfirmation && Boolean(formik.errors.passwordConfirmation)}
+                helperText={formik.touched.passwordConfirmation && formik.errors.passwordConfirmation}
+            />
+
             <Button 
                 fullWidth
                 color="primary" 
@@ -62,4 +99,4 @@ const LoginForm = () => {
     );
 };
 
-export default LoginForm;
+export default SignupForm;

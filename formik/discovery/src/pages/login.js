@@ -4,7 +4,7 @@ const Login = () => {
 
     return (
         <div>
-            <h1> Création de compte </h1>       
+            <h1> Connexion </h1>       
             <LoginForm />
         </div>
     );

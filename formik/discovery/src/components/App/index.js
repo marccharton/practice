@@ -1,7 +1,8 @@
 import './App.css';
 
 // import SimpleForm from './components/forms/simpleForm';
-import Login from './pages/login';
+import Login from '../../pages/login';
+import Signup from '../../pages/signup';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
 
       {/* <SimpleForm></SimpleForm> */}
       <Login></Login>
+      <Signup></Signup>
 
     </div>
   );
